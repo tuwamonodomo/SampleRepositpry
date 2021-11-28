@@ -1,0 +1,21 @@
+<h1>GeekTwitter</h1>
+<h3>新規student</h3>
+<div class="post-container">
+    <p class="title">投稿フォーム</p>
+<%= form_for @student do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :size => 130 %>
+    
+    <%= f.label :profile %>
+    <%= f.text_field :profile, :size => 130 %>
+    
+    <%= f.label :mentor %>
+    <%= f.text_field :mentor, :size => 130 %>
+    
+    <%= f.label :grade %>
+    <%= f.number_field :grade, :size => 10 %>
+    </div>
+    <%= f.submit "追加する" %>
+  <% end %>
+  <%= link_to "一覧に戻る", students_path %>

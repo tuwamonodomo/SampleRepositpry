@@ -1,0 +1,31 @@
+Enjoy programming!
+<%= link_to 'トップページ', students_index_path %>
+
+<h1>GeekKobe</h1>
+
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
+<h3>一覧</h3>
+<%= link_to "新規投稿へ", new_student_path %>
+
+
+
+<div class="students-container">
+  <% @student.each do |t| %>
+    <div class="student">
+    <div class="main-box">
+    <%= t.user.email %>
+    <div class="left-container"><%= t.name %></div>
+    <div class="right-container">  
+      <%= t.profile %>
+      <%= t.mentor %>
+      <%= t.grade %>
+      <%= t.created_at %>
+      <%= link_to "詳細へ", student_path(t.id) %>
+      <%= link_to "編集する", edit_student_path(t.id) %>
+      <%= button_to "削除する", student_path(t.id), method: :delete %>
+    </div>
+    </div>
+    </div>
+  <% end %>
+</div>
